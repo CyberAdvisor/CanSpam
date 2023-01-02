@@ -1,4 +1,4 @@
-# Delete-Server-Spam
+# Delete Server Spam AppleScript
 A simple Applescript to take action on email flagged as spam on the iCloud server. This is presented as a template that you can customize to process junk mail the way you want. 
 
 ## Why is this needed?

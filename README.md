@@ -7,7 +7,7 @@ Server side spam messages are not subject to Apple Mail app email rules, and as 
 ## What does this do?
 This script runs as an application (in your Applications Folder) every minute, reviewing all junk email for the following:
 1. Marks all junk email as read and as junk (to address server junk not showing as junk in the app)
-2. As an example, shows how to write specific rules to delete junk from persistent spammers that was being caught server side, where you rules had no effect.
+2. As an example, shows how to write specific rules to delete junk from persistent spammers that was being caught server side, where your Apple mail client rules had no effect.
 3. Moves all other server side junk to a separate folder underneath the Junk folder so that you can either review later or ignore. 
 
 This mail flow is an example to show you what is possible and is not intended as the final solution for anyone. 

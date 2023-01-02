@@ -13,4 +13,9 @@ This script runs as an application (in your Applications Folder) every minute, r
 This mail flow is an example to show you what is possible and is not intended as the final solution for anyone. 
 
 ## How do I modify/use this?
-Download the script to your computer (must be an Apple) and open it with the Script Editor. From there, customize as you wish and then Save As (hold down the Option key) an Application instead of a script. Make sure to select the "stay open after run handler" checkbox. Move the application to your Applicaion Folder and run it. It will ask you for permission to access your email. Set the Option on the App to "Open at Login". 
+1. Download the script to your computer (must be an Apple) and open it with the Script Editor. 
+2. From there, customize as you wish and then Save As (hold down the Option key) an Application instead of a script. 
+3. Make sure to select the "stay open after run handler" checkbox. 
+4. Move the application to your Applicaion Folder and run it. 
+5. It will ask you for permission to access your email. 
+6. Right click on the running app in the dock and select "Options / Open at Login"

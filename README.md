@@ -1,5 +1,5 @@
 # Auto Spaminator
-An Applescript process to help automate processing of spam email so that you only have to review the limited email that can't be auto deleted. The more you use it by training incorrectly classified spam, the better if performs!
+An Applescript process that leverages SpamSieve to help automate processing of spam email, so that you only have to review the limited email that can't be auto deleted. The more you use it by training incorrectly classified spam, the better if performs!
 
 ## What is required
 - The default Apple email app on a Mac computer. This will not work with other email clients such as Edison, Spark, etc., nor will it run on IOS (but you can manage the spam processing from your IOS device). 

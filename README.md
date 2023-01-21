@@ -30,6 +30,7 @@ Spam is a waste of time to manage, and having to review your junk mailbox to see
 7. Move the Auto-Spaminator app on your desktop to your Applications folder (you will need to have admin permissions)
 8. Purchase the Lingon 3 utility, create a new job, and the point it to the application you just moved in your application folder. You only need to specify how often you want this to run in the options - this will create the launchd job to periodically run the script app.
 9. You may receive popups the first time this runs requesting various mail permissions - allow them all.
+10. Preferably a dedicated mac (a drone) that can stay open and run mail and this script 24x7. 
 
 ## What's the workflow to use this?
 1. After installation, most of your spam will be auto processed and moved to the trash. The read flag is kept on to make it easy to review these to make sure nothing was caught by accident. I review once a day and it takes only a few seconds - then I delete them.

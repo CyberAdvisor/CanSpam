@@ -1,10 +1,6 @@
 use AppleScript version "2.4" -- Yosemite (10.10) or later
 use scripting additions
--- Manage Server Spam application
--- Save as Application in script editor to Applications folder
--- Customize to delete problematic spam that rules won't address
--- 12/30/22 - Michael Lines - Initial version
--- 01/19/23 - Michael Lines - Updated to leverage Spamsieve, manage training folders. Install in Launchd using Linkon 3
+
 (*
 Auto Spaminator
 By Michael Lines

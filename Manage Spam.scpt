@@ -13,7 +13,8 @@ Leverages code from the Rescue Good Messages and Remote Training publically avai
 HISTORY
 - 2023-01-21 - v1.0;  initial release
 - 2023-01-22 - v1.0.1 - bug fix of spamsieve call in training
-- 2023-01-22 - v1.0.2 - bug fix for suspect spam and mail delay
+- 2023-01-22 - v1.0.2 - bug fix for suspect spam
+- 2023-01-23 - v1.1 - remove forced email check (not needed with push apple mail)
 
 KNOWN ISSUES
 - No debugging, error handling included. Folders must be precreated as documented in the instructions.
@@ -27,8 +28,6 @@ end run
 
 on manageSpam()
 	tell application "Mail"
-		check for new mail -- Refresh/sync mail
-		delay 5 -- allow time for mail to fetch the new mail
 		
 		--
 		-- Examine all junk messages to score and delete if needed

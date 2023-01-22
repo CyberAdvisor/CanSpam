@@ -12,7 +12,8 @@ Leverages code from the Rescue Good Messages and Remote Training publically avai
 
 HISTORY
 - 2023-01-21 - v1.0;  initial release
-- 2023-01-22 - v1.0.1 - bug fix of spamsieve in training
+- 2023-01-22 - v1.0.1 - bug fix of spamsieve call in training
+- 2023-01-22 - v1.0.2 - bug fix for suspect spam
 
 KNOWN ISSUES
 - No debugging, error handling included. Folders must be precreated as documented in the instructions.
@@ -59,7 +60,8 @@ on manageSpam()
 					--
 					-- Move remaining spam to folder for review
 					-- 
-					move _junkMsg to mailbox "SuspectSpam"
+					set _suspectFolder to mailbox "SuspectSpam" of account "iCloud"
+					move _junkMsg to mailbox _suspectFolder
 				end if
 				
 				--

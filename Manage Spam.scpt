@@ -12,6 +12,7 @@ Leverages code from the Rescue Good Messages and Remote Training publically avai
 
 HISTORY
 - 2023-01-21 - v1.0;  initial release
+- 2023-01-22 - v1.0.1 - bug fix of spamsieve in training
 
 KNOWN ISSUES
 - No debugging, error handling included. Folders must be precreated as documented in the instructions.
@@ -76,7 +77,7 @@ on manageSpam()
 		set _myGoodList to (get every message of mailbox "TrainGood" of account "iCloud")
 		repeat with _goodMsg in _myGoodList
 			set _source to _goodMsg's source
-			tell application "SpamSieve" to add good _source
+			tell application "SpamSieve" to add good message _source
 			set _goodMsg's read status to false
 			set _goodMsg's background color to none
 			move _goodMsg to inbox
@@ -88,7 +89,7 @@ on manageSpam()
 		set _mySpamList to (get every message of mailbox "TrainSpam" of account "iCloud")
 		repeat with _spamMsg in _mySpamList
 			set _source to _spamMsg's source
-			tell application "SpamSieve" to add spam _source
+			tell application "SpamSieve" to add spam message _source
 			set _spamMsg's background color to blue
 			set _spamMsg's read status to false
 			delete _spamMsg

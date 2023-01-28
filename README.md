@@ -33,7 +33,7 @@ Spam is a waste of time to manage, and having to review your junk mailbox to see
 10. Preferably a dedicated mac (a drone) that can stay open and run mail and this script 24x7. 
 
 ## What's the workflow to use this?
-1. After installation, most of your spam will be auto processed and moved to the trash. The read flag is kept on to make it easy to review these to make sure nothing was caught by accident. I review once a day and it takes only a few seconds - then I delete them.
+1. After installation, most of your spam will be auto processed and moved to the trash. 
 2. Any message that falls between known good and known bad will be moved to the SuspectSpam folder. When I see messages appear here I review and then move them to either the TrainGood or TrainSpam folder as appropriate, by either moving the messages if I am reviewing on my IOS device, or my using the TrainGood and TrainSpam commands embedded in the Apple email app by Spamsieve. With continued use of SpamSieve this will be rarer and rarer.
 3. Live my life and don't stress about spam! The more you use this (and train the SpamSieve model), the less you will need to deal with spam as the Spaminator (and SpamSieve) will be taking care of it for you.
 

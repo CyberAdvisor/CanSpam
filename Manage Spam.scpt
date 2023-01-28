@@ -15,6 +15,7 @@ HISTORY
 - 2023-01-22 - v1.0.1 - bug fix of spamsieve call in training
 - 2023-01-22 - v1.0.2 - bug fix for suspect spam
 - 2023-01-23 - v1.1 - remove forced email check (not needed with push apple mail)
+- 2023-01-28 - v1.1.1 - adjusted read flags
 
 KNOWN ISSUES
 - No debugging, error handling included. Folders must be precreated as documented in the instructions.
@@ -60,15 +61,15 @@ on manageSpam()
 					--
 					-- Move remaining spam to folder for review
 					-- 
-					set _suspectFolder to mailbox "SuspectSpam" of account "iCloud"
-					move _junkMsg to mailbox _suspectFolder
+					set _junkMsg's read status to false -- Flag for review
+					set mailbox of _junkMsg to mailbox "SuspectSpam" of account "iCloud"
 				end if
 				
 				--
 				-- Check for blue/gray message added by Train Spam in Mail app
 				--
 			else if _junkMsg's background color is blue or _junkMsg's background color is gray then
-				set _junkMsg's read status to false
+				set _junkMsg's read status to true
 				delete _junkMsg
 			end if
 		end repeat
@@ -93,7 +94,7 @@ on manageSpam()
 			set _source to _spamMsg's source
 			tell application "SpamSieve" to add spam message _source
 			set _spamMsg's background color to blue
-			set _spamMsg's read status to false
+			set _spamMsg's read status to true
 			delete _spamMsg
 		end repeat
 		
@@ -115,7 +116,7 @@ on colorMessageAndDecideIfShouldMoveToTrash(_message, _score)
 			set {_threshold, _color, _moveToTrash} to _row
 			if _score ≥ _threshold then
 				set _message's background color to _color
-				set _message's read status to false -- Flag for review (in trash, suspect or inbox)
+				set _message's read status to true
 				return _moveToTrash
 			end if
 		end repeat

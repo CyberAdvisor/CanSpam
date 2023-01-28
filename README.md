@@ -26,8 +26,8 @@ Spam is a waste of time to manage, and having to review your junk mailbox to see
 3. Perform the initial training of SpamSieve as detailed in the instructions.
 4. Create 3 Spamsieve rules in the Mail app as specified in section 4.6.3 of the SpamSieve manual to move both Blue and Gray messages to the trash.
 5. Create the following folders in iCloud Mail: TrainSpam, TrainGood and SuspectSpam
-6. Download the Auto-Spaminator applescript, open it in the Script Editor, and save it as an application to your desktop (you will need to hold the option key to see the Save As.. option appear in the File Menu).
-7. Move the Auto-Spaminator app on your desktop to your Applications folder (you will need to have admin permissions)
+6. Download the Manage Spam applescript, open it in the Script Editor, and save it as an application to your desktop (you will need to hold the option key to see the Save As.. option appear in the File Menu).
+7. Move the Manage Spam app on your desktop to your Applications folder (you will need to have admin permissions)
 8. Purchase the Lingon 3 utility, create a new job, and the point it to the application you just moved in your application folder. You only need to specify how often you want this to run in the options - this will create the launchd job to periodically run the script app.
 9. You may receive popups the first time this runs requesting various mail permissions - allow them all.
 10. Preferably a dedicated mac (a drone) that can stay open and run mail and this script 24x7. 

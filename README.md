@@ -17,6 +17,8 @@ If for some reason a company with misconfigured SPF, DKIM or DMARC sends you a m
 
 If you receive email from a legtimate company that you no longer wish to hear from, first use their unsubscribe link if it is available. If they refuse to honor their own unsubscribe, then use the Apple Mail Block Contact feature to send all of their future emails directly to the trash (you will need to enable this in the Apple Mail Junk Mail preferences).
 
+Finally, if you see obvious spam mail in your junk folder that CanSpam is not trashing, and the SPF/DKIM/DMARC headers are all good, in that case you are dealing with an open relay. Someone has misconfigured their email server to allow spammers to send out spam through their system. In this case, again use the Block Contact feature to trash future spam until the compromised company fixes their mail server configuration. 
+
 ## Installation instructions
 1. Download the CanSpam applescript, open it in the Script Editor, and save it as an application to your desktop (you will need to hold the option key to see the Save As.. option appear in the File Menu).
 2. Move the CanSpam app on your desktop to your Applications folder (you will need to have admin permissions)

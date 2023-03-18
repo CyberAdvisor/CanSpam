@@ -29,11 +29,6 @@ end run
 on manageSpam()
 	tell application "Mail"
 		
-		-- 
-		-- Set logfile
-		--
-		set _myLogFile to "/Users/michaellines/Desktop/CanSpam.txt"
-		
 		--
 		-- Examine all junk messages and delete if needed
 		--

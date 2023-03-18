@@ -56,11 +56,15 @@ end manageSpam
 
 on deleteSpamMsg(_message, _failure)
 	tell application "Mail"
-		-- Log the spam
-		set _logFile to "/Users/michaellines/Desktop/CanSpam.txt"
+		--
+		-- Log the spam (replace <username> with your local apple userid)
+		--
+		set _logFile to "/Users/<username>/Desktop/CanSpam.txt"
 		set _logMsg to ((current date) as string) & space & "Failure: " & _failure & "   Sender: '" & _message's sender & "'"
 		do shell script "echo  " & quoted form of _logMsg & " >>  " & quoted form of _logFile
+		--
 		-- Delete the spam
+		--
 		set _message's read status to true
 		delete _message
 	end tell

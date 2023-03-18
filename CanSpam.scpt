@@ -13,6 +13,7 @@ HISTORY
 - 2023-01-26 - v1.0;  initial release
 - 2023-02-23 - v1.1; updated to focus on DMARC controls
 - 2023-03-04 - v1.2; tighten reliance on spf, dkim and dmarc
+- 2023-03-18 - v1.3; add additional spf checks to catch relayed spam
 - 
 KNOWN ISSUES
 - NA
@@ -36,7 +37,10 @@ on manageSpam()
 			--
 			-- Delete spam
 			--
-			if _junkMsg's source does not contain "spf=pass" then
+			
+			if (_junkMsg's source contains "spf=fail") or (_junkMsg's source contains "spf=softfail") then
+				my deleteSpamMsg(_junkMsg)
+			else if _junkMsg's source does not contain "spf=pass" then
 				my deleteSpamMsg(_junkMsg)
 			else if _junkMsg's source does not contain "dmarc=pass" then
 				my deleteSpamMsg(_junkMsg)

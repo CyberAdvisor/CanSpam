@@ -13,7 +13,8 @@ HISTORY
 - 2023-01-26 - v1.0;  initial release
 - 2023-02-23 - v1.1; updated to focus on DMARC controls
 - 2023-03-04 - v1.2; tighten reliance on spf, dkim and dmarc
-- 2023-03-18 - v1.3; add additional spf checks to catch relayed spam
+- 2023-03-18 - v1.3; added additional spf checks to catch relayed spam
+- 2023-03-18 - v1.3.1; added logging
 - 
 KNOWN ISSUES
 - NA
@@ -28,6 +29,11 @@ end run
 on manageSpam()
 	tell application "Mail"
 		
+		-- 
+		-- Set logfile
+		--
+		set _myLogFile to "/Users/michaellines/Desktop/CanSpam.txt"
+		
 		--
 		-- Examine all junk messages and delete if needed
 		--
@@ -35,25 +41,28 @@ on manageSpam()
 		repeat with _junkMsg in _myJunkList
 			
 			--
-			-- Delete spam
+			-- Check spf, dmarc, dkim for and delete if spam
 			--
-			
-			if (_junkMsg's source contains "spf=fail") or (_junkMsg's source contains "spf=softfail") then
-				my deleteSpamMsg(_junkMsg)
+			if _junkMsg's source contains "spf=fail" then
+				my deleteSpamMsg(_junkMsg, "spf=fail", _myLogFile)
+			else if _junkMsg's source contains "spf=softfail" then
+				my deleteSpamMsg(_junkMsg, "spf=softfail", _myLogFile)
 			else if _junkMsg's source does not contain "spf=pass" then
-				my deleteSpamMsg(_junkMsg)
+				my deleteSpamMsg(_junkMsg, "no spf=pass", _myLogFile)
 			else if _junkMsg's source does not contain "dmarc=pass" then
-				my deleteSpamMsg(_junkMsg)
+				my deleteSpamMsg(_junkMsg, "no dmarc=pass", _myLogFile)
 			else if _junkMsg's source does not contain "dkim=pass" then
-				my deleteSpamMsg(_junkMsg)
+				my deleteSpamMsg(_junkMsg, "no dkim=pass", _myLogFile)
 			end if
 		end repeat
 		
 	end tell
 end manageSpam
 
-on deleteSpamMsg(_message)
+on deleteSpamMsg(_message, _failure, _logFile)
 	tell application "Mail"
+		set _logMsg to ((current date) as string) & space & "Failure: " & _failure & "   Sender: '" & _message's sender & "'"
+		do shell script "echo  " & quoted form of _logMsg & " >>  " & quoted form of _logFile
 		set _message's read status to true
 		delete _message
 	end tell
